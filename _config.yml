@@ -1,0 +1,13 @@
+  title: 我的阅读笔记与日常
+   description: 记录我的读书摘录、思考与日常感想。
+   author: 我的名字
+   language: zh-CN
+
+   theme: minima
+   url: "https://你的用户名.github.io"
+   github_username: 你的用户名
+   header_pages:
+     - about.md
+  
+   url: "https://A7wen-user.github.io"`
+   github_username: A7wen-user`
