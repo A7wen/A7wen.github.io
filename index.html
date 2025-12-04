@@ -1,7 +1,7 @@
-<!DOCTYPE HTML>
-<htmi lang="zh-cn">
-<lead>
-  <neta charset="UTF-8"/>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>我的阅读与日常</title>
   <style>
@@ -12,7 +12,7 @@
       --text: #2f2f2f;
       --muted: #6b6b6b;
       --accent: #ffa94d;
-      --accent-dark: #ff7a18;   
+      --accent-dark: #ff7a18;
     }
     * {
       box-sizing: border-box;
@@ -29,7 +29,7 @@
       color: inherit;
     }
     header {
-       background: linear-gradient(135deg, #fff1e6, #ffe7ba);
+      background: linear-gradient(135deg, #fff1e6, #ffe7ba);
       padding: 3.5rem 1.5rem 5rem;
       text-align: center;
     }
@@ -46,7 +46,7 @@
       max-width: 1080px;
       margin: -3rem auto 4rem;
       padding: 0 1.2rem;
-       }
+    }
     .card {
       background: var(--card);
       border-radius: 1.2rem;
@@ -76,6 +76,46 @@
       max-height: 280px;
     }
 
+    .entry-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .entry-form textarea {
+      min-height: 100px;
+      resize: vertical;
+      padding: 0.8rem;
+      border-radius: 0.8rem;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    .entry-form input {
+      padding: 0.6rem 0.8rem;
+      border-radius: 0.8rem;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      font-size: 1rem;
+    }
+    .entry-form button {
+      align-self: flex-start;
+      padding: 0.6rem 1.6rem;
+      border: none;
+      border-radius: 999px;
+      background: var(--accent);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .entry-form button:hover {
+      background: var(--accent-dark);
+    }
+    .entry-form .hint {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
     .emotions {
       gap: 1rem;
       flex-wrap: wrap;
@@ -88,7 +128,7 @@
       gap: 0.5rem;
       padding: 1rem;
       border-radius: 0.9rem;
-       border: 1px solid rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.08);
       cursor: pointer;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
       background: #fffdf8;
@@ -108,7 +148,7 @@
       list-style: none;
       padding: 0;
       margin: 0;
-       display: grid;
+      display: grid;
       gap: 1rem;
     }
     .list li {
@@ -128,7 +168,7 @@
     }
 
     .upload-zone {
-       border: 2px dashed rgba(0, 0, 0, 0.1);
+      border: 2px dashed rgba(0, 0, 0, 0.1);
       border-radius: 1rem;
       padding: 1.25rem;
       text-align: center;
@@ -144,7 +184,6 @@
       cursor: pointer;
       transition: background 0.2s ease;
     }
-     }
     .upload-zone button:hover {
       background: var(--accent-dark);
     }
@@ -162,7 +201,7 @@
       .card {
         padding: 1.25rem;
       }
-      }
+    }
   </style>
 </head>
 <body>
@@ -171,16 +210,19 @@
     <h1>我的阅读与日常</h1>
     <p>在这里写下读书感想、生活烦恼与小小幸福，还可以慢慢加入朋友们的声音。</p>
   </header>
-<main>
+
+  <main>
     <!-- 顶部信息区 -->
     <section class="card hero-info">
       <div>
         <h2>今日笔记</h2>
-        <p>点击下方按钮即可记录一段文字或上传图片。未来这里可以接真实的上传接口。</p>
-        <div class="upload-zone">
-          <p>拖拽图片 / 文字到这里，或点击按钮准备上传</p>
-          <button onclick="alert('未来可以接入真实上传逻辑')">上传文件</button>
-        </div>
+        <p>在这里记录文字或图片链接。提交后，记录会存进后台数据库。</p>
+        <form id="entry-form" class="entry-form">
+          <textarea name="text" placeholder="写下今天的文字..." required></textarea>
+          <input name="image_url" type="url" placeholder="图片链接（可选）" />
+          <button type="submit">保存记录</button>
+          <p class="hint">尚未支持直接上传图片，可先把图片放到图床后粘贴链接。</p>
+        </form>
       </div>
       <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="阅读场景示意图" />
     </section>
@@ -193,7 +235,7 @@
           <span>🗑️</span>
           <strong>最近烦恼</strong>
           <small>点击查看</small>
-            </button>
+        </button>
         <button class="emotion-btn" data-type="happy">
           <span>😊</span>
           <strong>最近开心</strong>
@@ -207,13 +249,13 @@
       </div>
     </section>
 
-    <!-- 内容展示区 -->
+    <!-- 记录展示区 -->
     <section class="card">
       <h2>精选记录</h2>
-      <div class="list" id="journal-list"></div>
+      <div class="list" id="entries-list"></div>
     </section>
 
-   <!-- 预留：未来的用户记录 / 评论入口 -->
+    <!-- 预留：其他用户留言 -->
     <section class="card">
       <h2>朋友们的留言（预留）</h2>
       <p>未来这里可以接入真实的评论系统或数据库，展示其他用户的体验/留言。</p>
@@ -229,7 +271,7 @@
   </footer>
 
   <script>
-      // 示例数据，可随意替换 / 扩展
+    // 1) 心情按钮示例数据
     const moodData = {
       trouble: [
         "工作安排堆在一起，怕搞砸。",
@@ -248,44 +290,93 @@
       ]
     };
 
-     const journalSamples = [
-      {
-        title: "读《活着》后的感想",
-        content: "“活着”不是一件轻松的事，但正因为艰辛才更珍贵。",
-        tags: "#读书笔记"
-      },
-      {
-        title: "雨天和咖啡",
-        content: "今天的雨停了又下，适合泡一杯黑咖，写两句情绪。",
-        tags: "#日常碎片"
-      },
-      {
-        title: "城市里的奇遇",
-        content: "在地铁站遇到老友，聊了一路。生活总有突然的小惊喜。",
-        tags: "#相遇"
-         }
-    ];
-
-    // 把示例记录渲染到列表
-    const journalList = document.getElementById("journal-list");
-    journalSamples.forEach(item => {
-      const li = document.createElement("li");
-      li.innerHTML = `
-        <strong>${item.title}</strong>
-        <p>${item.content}</p>
-        <small>${item.tags}</small>
-      `;
-      journalList.appendChild(li);
-    });
-
-    // 绑定心情按钮的弹窗逻辑
-    document.querySelectorAll(".emotion-btn").forEach(btn => {
+    document.querySelectorAll(".emotion-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
         const type = btn.dataset.type;
         const lines = moodData[type] || ["这里还没有内容，欢迎添加～"];
         alert(lines.join("\n"));
       });
-      });
+    });
+
+    // 2) 日志 API 对接
+    const API_BASE = "http://127.0.0.1:5000"; // 本地测试用；部署后改成线上地址
+    const entriesList = document.getElementById("entries-list");
+    const entryForm = document.getElementById("entry-form");
+
+    async function loadEntries() {
+      entriesList.innerHTML = "<p>加载中...</p>";
+      try {
+        const res = await fetch(`${API_BASE}/entries`);
+        const data = await res.json();
+
+        if (!Array.isArray(data) || data.length === 0) {
+          entriesList.innerHTML = "<p>还没有记录，快写一条吧！</p>";
+          return;
+        }
+
+        entriesList.innerHTML = "";
+        data.forEach((entry) => {
+          const li = document.createElement("li");
+          const time = new Date(entry.created_at).toLocaleString("zh-CN", {
+            hour12: false,
+          });
+
+          li.innerHTML = `
+            <strong>${time}</strong>
+            <p>${entry.text.replace(/\n/g, "<br/>")}</p>
+            ${
+              entry.image_url
+                ? `<img src="${entry.image_url}" alt="图片" style="max-width: 100%; border-radius: 0.8rem; margin-top: 0.5rem;" />`
+                : ""
+            }
+          `;
+          entriesList.appendChild(li);
+        });
+      } catch (err) {
+        entriesList.innerHTML =
+          "<p>加载失败，请稍后再试。</p><small>" + err + "</small>";
+      }
+    }
+
+    entryForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const formData = new FormData(entryForm);
+      const text = formData.get("text").trim();
+      const image_url = formData.get("image_url").trim();
+
+      if (!text) {
+        alert("请先写点内容再提交");
+        return;
+      }
+
+      const submitBtn = entryForm.querySelector("button");
+      submitBtn.disabled = true;
+      submitBtn.textContent = "保存中...";
+
+      try {
+        const res = await fetch(`${API_BASE}/entries`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ text, image_url }),
+        });
+
+        if (!res.ok) {
+          const msg = await res.json();
+          throw new Error(msg.error || "保存失败");
+        }
+
+        entryForm.reset();
+        await loadEntries();
+        alert("保存成功！");
+      } catch (err) {
+        alert("保存失败：" + err.message);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "保存记录";
+      }
+    });
+
+    loadEntries();
   </script>
 </body>
 </html>
