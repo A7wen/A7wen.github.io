@@ -31,7 +31,7 @@
     header {
       background: linear-gradient(135deg, #fff1e6, #ffe7ba);
       padding: 3.5rem 1.5rem 5rem;
-      text-align: center;
+      text-align: center.
     }
     header h1 {
       font-size: clamp(1.8rem, 4vw, 2.5rem);
@@ -54,41 +54,16 @@
       margin-bottom: 1.5rem;
       box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
     }
-    .flex {
-      display: flex;
-      gap: 1.25rem;
-      flex-wrap: wrap;
-    }
-    .flex > * {
-      flex: 1 1 260px;
-    }
+    .flex { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+    .flex > * { flex: 1 1 260px; }
+    .hero-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; align-items: center; }
+    .hero-info img { width: 100%; border-radius: 1.2rem; object-fit: cover; max-height: 280px; }
 
-    .hero-info {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.25rem;
-      align-items: center;
-    }
-    .hero-info img {
-      width: 100%;
-      border-radius: 1.2rem;
-      object-fit: cover;
-      max-height: 280px;
-    }
-
-    .entry-form {
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-    }
+    .entry-form { display: flex; flex-direction: column; gap: 0.8rem; }
     .entry-form textarea {
-      min-height: 100px;
-      resize: vertical;
-      padding: 0.8rem;
-      border-radius: 0.8rem;
-      border: 1px solid rgba(0, 0, 0, 0.15);
-      font-family: inherit;
-      font-size: 1rem;
+      min-height: 100px; resize: vertical; padding: 0.8rem;
+      border-radius: 0.8rem; border: 1px solid rgba(0, 0, 0, 0.15);
+      font-family: inherit; font-size: 1rem;
     }
     .entry-form input {
       padding: 0.6rem 0.8rem;
@@ -96,112 +71,35 @@
       border: 1px solid rgba(0, 0, 0, 0.15);
       font-size: 1rem;
     }
+    .mood-group { display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.95rem; }
+    .mood-group label { display: flex; align-items: center; gap: 0.35rem; }
     .entry-form button {
-      align-self: flex-start;
-      padding: 0.6rem 1.6rem;
-      border: none;
-      border-radius: 999px;
-      background: var(--accent);
-      color: white;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s ease;
+      align-self: flex-start; padding: 0.6rem 1.6rem; border: none; border-radius: 999px;
+      background: var(--accent); color: white; font-weight: 600; cursor: pointer; transition: background 0.2s ease;
     }
-    .entry-form button:hover {
-      background: var(--accent-dark);
-    }
-    .entry-form .hint {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin: 0;
-    }
+    .entry-form button:hover { background: var(--accent-dark); }
+    .entry-form .hint { font-size: 0.9rem; color: var(--muted); margin: 0; }
 
-    .emotions {
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
+    .emotions { gap: 1rem; flex-wrap: wrap; }
     .emotion-btn {
-      flex: 1 1 150px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 1rem;
-      border-radius: 0.9rem;
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      background: #fffdf8;
+      flex: 1 1 150px; display: flex; flex-direction: column; align-items: center;
+      gap: 0.5rem; padding: 1rem; border-radius: 0.9rem; border: 1px solid rgba(0, 0, 0, 0.08);
+      cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; background: #fffdf8;
     }
-    .emotion-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
-    }
-    .emotion-btn span {
-      font-size: 2rem;
-    }
-    .emotion-btn small {
-      color: var(--muted);
-    }
+    .emotion-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08); }
+    .emotion-btn span { font-size: 2rem; }
+    .emotion-btn small { color: var(--muted); }
 
-    .list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 1rem;
-    }
+    .list { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; }
     .list li {
-      padding: 1rem;
-      border-radius: 0.9rem;
-      background: #fff;
+      padding: 1rem; border-radius: 0.9rem; background: #fff;
       border: 1px solid rgba(0, 0, 0, 0.05);
     }
-    .list strong {
-      display: block;
-      font-size: 1.1rem;
-      margin-bottom: 0.25rem;
-    }
-    .list p {
-      margin: 0;
-      color: var(--muted);
-    }
+    .list strong { display: block; font-size: 1.1rem; margin-bottom: 0.25rem; }
+    .list p { margin: 0; color: var(--muted); }
 
-    .upload-zone {
-      border: 2px dashed rgba(0, 0, 0, 0.1);
-      border-radius: 1rem;
-      padding: 1.25rem;
-      text-align: center;
-    }
-    .upload-zone button {
-      margin-top: 0.7rem;
-      padding: 0.7rem 1.6rem;
-      border: none;
-      border-radius: 999px;
-      background: var(--accent);
-      color: white;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.2s ease;
-    }
-    .upload-zone button:hover {
-      background: var(--accent-dark);
-    }
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 640px) {
-      header {
-        padding: 2.5rem 1rem 4rem;
-      }
-      .card {
-        padding: 1.25rem;
-      }
-    }
+    footer { text-align: center; padding: 2rem 1rem; color: var(--muted); font-size: 0.9rem; }
+    @media (max-width: 640px) { header { padding: 2.5rem 1rem 4rem; } .card { padding: 1.25rem; } }
   </style>
 </head>
 <body>
@@ -212,22 +110,25 @@
   </header>
 
   <main>
-    <!-- 顶部信息区 -->
     <section class="card hero-info">
       <div>
         <h2>今日笔记</h2>
-        <p>在这里记录文字或图片链接。提交后，记录会存进后台数据库。</p>
+        <p>记录文字或图片链接。提交后，记录会存进后台数据库。</p>
         <form id="entry-form" class="entry-form">
           <textarea name="text" placeholder="写下今天的文字..." required></textarea>
           <input name="image_url" type="url" placeholder="图片链接（可选）" />
+          <div class="mood-group">
+            <label><input type="radio" name="mood" value="happy" checked> 😊 开心</label>
+            <label><input type="radio" name="mood" value="trouble"> 🗑️ 烦恼</label>
+            <label><input type="radio" name="mood" value="idea"> 💡 灵感</label>
+          </div>
           <button type="submit">保存记录</button>
-          <p class="hint">尚未支持直接上传图片，可先把图片放到图床后粘贴链接。</p>
+          <p class="hint">目前不支持直接上传图片，可先上传到图床后粘贴链接。</p>
         </form>
       </div>
       <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="阅读场景示意图" />
     </section>
 
-    <!-- 心情互动区 -->
     <section class="card">
       <h2>心情小按钮</h2>
       <div class="flex emotions">
@@ -249,13 +150,11 @@
       </div>
     </section>
 
-    <!-- 记录展示区 -->
     <section class="card">
       <h2>精选记录</h2>
       <div class="list" id="entries-list"></div>
     </section>
 
-    <!-- 预留：其他用户留言 -->
     <section class="card">
       <h2>朋友们的留言（预留）</h2>
       <p>未来这里可以接入真实的评论系统或数据库，展示其他用户的体验/留言。</p>
@@ -271,78 +170,54 @@
   </footer>
 
   <script>
-    // 1) 心情按钮示例数据
-    const moodData = {
-      trouble: [
-        "工作安排堆在一起，怕搞砸。",
-        "入冬的感冒还没好，不想动弹。",
-        "最近难得静下心读书。"
-      ],
-      happy: [
-        "朋友突然寄来一封手写信。",
-        "阳台上的多肉终于开花了！",
-        "学会了做一道好吃的汤。"
-      ],
-      idea: [
-        "做一个线上读书会？",
-        "把随手拍的照片整理成小画册。",
-        "试试采访身边的人，做成播客。"
-      ]
-    };
+    // ------------------ 配置 ------------------
+    const API_BASE = "http://127.0.0.1:5000"; // 本地测试；部署后换成线上 API
+    let writeSecret = localStorage.getItem("WRITE_SECRET");
+    if (!writeSecret) {
+      writeSecret = prompt("请输入写入密码：", "my-secret-pass") || "";
+      localStorage.setItem("WRITE_SECRET", writeSecret);
+    }
 
-    document.querySelectorAll(".emotion-btn").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const type = btn.dataset.type;
-        const lines = moodData[type] || ["这里还没有内容，欢迎添加～"];
-        alert(lines.join("\n"));
-      });
-    });
-
-    // 2) 日志 API 对接
-    const API_BASE = "http://127.0.0.1:5000"; // 本地测试用；部署后改成线上地址
     const entriesList = document.getElementById("entries-list");
     const entryForm = document.getElementById("entry-form");
 
+    // ------------------ 加载记录 ------------------
     async function loadEntries() {
       entriesList.innerHTML = "<p>加载中...</p>";
       try {
         const res = await fetch(`${API_BASE}/entries`);
         const data = await res.json();
-
         if (!Array.isArray(data) || data.length === 0) {
           entriesList.innerHTML = "<p>还没有记录，快写一条吧！</p>";
           return;
         }
-
         entriesList.innerHTML = "";
         data.forEach((entry) => {
           const li = document.createElement("li");
-          const time = new Date(entry.created_at).toLocaleString("zh-CN", {
-            hour12: false,
-          });
-
+          const time = new Date(entry.created_at).toLocaleString("zh-CN", { hour12: false });
           li.innerHTML = `
-            <strong>${time}</strong>
+            <strong>${time} · ${entry.mood || "未知心情"}</strong>
             <p>${entry.text.replace(/\n/g, "<br/>")}</p>
             ${
               entry.image_url
-                ? `<img src="${entry.image_url}" alt="图片" style="max-width: 100%; border-radius: 0.8rem; margin-top: 0.5rem;" />`
+                ? `<img src="${entry.image_url}" alt="图片" style="max-width: 100%; border-radius: 0.8rem;margin-top:0.5rem;" />`
                 : ""
             }
           `;
           entriesList.appendChild(li);
         });
       } catch (err) {
-        entriesList.innerHTML =
-          "<p>加载失败，请稍后再试。</p><small>" + err + "</small>";
+        entriesList.innerHTML = "<p>加载失败，请稍后再试。</p><small>" + err + "</small>";
       }
     }
 
+    // ------------------ 提交表单 ------------------
     entryForm.addEventListener("submit", async (e) => {
       e.preventDefault();
       const formData = new FormData(entryForm);
       const text = formData.get("text").trim();
       const image_url = formData.get("image_url").trim();
+      const mood = formData.get("mood") || "happy";
 
       if (!text) {
         alert("请先写点内容再提交");
@@ -356,12 +231,15 @@
       try {
         const res = await fetch(`${API_BASE}/entries`, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ text, image_url }),
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${writeSecret}`,
+          },
+          body: JSON.stringify({ text, imageUrl: image_url, mood }),
         });
 
         if (!res.ok) {
-          const msg = await res.json();
+          const msg = await res.json().catch(() => ({}));
           throw new Error(msg.error || "保存失败");
         }
 
@@ -374,6 +252,28 @@
         submitBtn.disabled = false;
         submitBtn.textContent = "保存记录";
       }
+    });
+
+    // ------------------ 心情按钮 ------------------
+    document.querySelectorAll(".emotion-btn").forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        const type = btn.dataset.type;
+        try {
+          const res = await fetch(`${API_BASE}/entries?mood=${type}`);
+          const data = await res.json();
+          if (!Array.isArray(data) || data.length === 0) {
+            alert("这一类心情还没有记录，快去写一条吧！");
+            return;
+          }
+          const preview = data
+            .slice(0, 3)
+            .map((entry) => `· ${entry.text}`)
+            .join("\n\n");
+          alert(preview);
+        } catch (err) {
+          alert("获取失败：" + err.message);
+        }
+      });
     });
 
     loadEntries();
